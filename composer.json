@@ -1,0 +1,22 @@
+{
+  "name": "expresser/role",
+  "support": {
+    "issues": "https://github.com/expresser/user/issues",
+    "source": "https://github.com/expresser/user"
+  },
+  "authors": [
+    {
+      "name": "Graham Blevins",
+      "email": "hgblevins@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "expresser/support": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Expresser\\Role\\": ""
+    }
+  }
+}
