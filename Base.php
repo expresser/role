@@ -35,10 +35,10 @@ abstract class Base extends \Expresser\Support\Model {
 
   public static function registerHooks($class) {
 
-    add_action('after_switch_theme', [$class, 'registerRole']);
-    add_action('after_switch_theme', [$class, 'registerCapabilities']);
-    add_action('switch_theme', [$class, 'deregisterCapabilities']);
-    add_action('switch_theme', [$class, 'deregisterRole']);
+    add_action('after_switch_theme', [$class, 'registerRole'], PHP_INT_MAX);
+    add_action('after_switch_theme', [$class, 'registerCapabilities'], PHP_INT_MAX);
+    add_action('switch_theme', [$class, 'deregisterCapabilities'], PHP_INT_MAX);
+    add_action('switch_theme', [$class, 'deregisterRole'], PHP_INT_MAX);
   }
 
   public static function registerRole() {
