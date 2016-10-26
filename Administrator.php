@@ -1,14 +1,16 @@
-<?php namespace Expresser\Role;
+<?php
 
-class Administrator extends Native {
+namespace Expresser\Role;
 
-  public function label() {
+class Administrator extends Native
+{
+    public function label()
+    {
+        return 'Administrator';
+    }
 
-    return 'Administrator';
-  }
-
-  public function name() {
-
-    return 'administrator';
-  }
+    public function name()
+    {
+        return 'administrator';
+    }
 }
