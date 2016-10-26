@@ -1,33 +1,34 @@
-<?php namespace Expresser\Role;
+<?php
 
-class Query extends \Expresser\Support\Builder {
+namespace Expresser\Role;
 
-  protected $names = [];
+class Query extends \Expresser\Support\Builder
+{
+    protected $names = [];
 
-  public function find($name) {
-
-    return $this->name($name)->first();
-  }
-
-  public function first() {
-
-    return $this->get()->first();
-  }
-
-  public function get() {
-
-    foreach ($this->names as &$name) {
-
-      $name = get_role($name);
+    public function find($name)
+    {
+        return $this->name($name)->first();
     }
 
-    return $this->getModels($this->names);
-  }
+    public function first()
+    {
+        return $this->get()->first();
+    }
 
-  public function name($name) {
+    public function get()
+    {
+        foreach ($this->names as &$name) {
+            $name = get_role($name);
+        }
 
-    $this->names[] = $name;
+        return $this->getModels($this->names);
+    }
 
-    return $this;
-  }
+    public function name($name)
+    {
+        $this->names[] = $name;
+
+        return $this;
+    }
 }

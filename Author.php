@@ -1,14 +1,16 @@
-<?php namespace Expresser\Role;
+<?php
 
-class Author extends Native {
+namespace Expresser\Role;
 
-  public function label() {
+class Author extends Native
+{
+    public function label()
+    {
+        return 'Author';
+    }
 
-    return 'Author';
-  }
-
-  public function name() {
-
-    return 'author';
-  }
+    public function name()
+    {
+        return 'author';
+    }
 }
