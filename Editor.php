@@ -1,14 +1,16 @@
-<?php namespace Expresser\Role;
+<?php
 
-class Editor extends Native {
+namespace Expresser\Role;
 
-  public function label() {
+class Editor extends Native
+{
+    public function label()
+    {
+        return 'Editor';
+    }
 
-    return 'Editor';
-  }
-
-  public function name() {
-
-    return 'editor';
-  }
+    public function name()
+    {
+        return 'editor';
+    }
 }

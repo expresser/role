@@ -1,14 +1,18 @@
-<?php namespace Expresser\Role;
+<?php
 
-abstract class Native extends Base {
+namespace Expresser\Role;
 
-  public static function registerRole() {
+abstract class Native extends Base
+{
+    public static function registerRole()
+    {
 
     // Do not implement registerRole for native or exisitng roles
-  }
+    }
 
-  public static function deregisterRole() {
+    public static function deregisterRole()
+    {
 
     // Do not implement deregisterRole for native or exisitng roles
-  }
+    }
 }
