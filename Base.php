@@ -2,9 +2,10 @@
 
 namespace Expresser\Role;
 
+use Expresser\Support\Model;
 use WP_Role;
 
-abstract class Base extends \Expresser\Support\Model
+abstract class Base extends Model
 {
     protected $role;
 
@@ -20,6 +21,7 @@ abstract class Base extends \Expresser\Support\Model
         $this->role->add_cap($capability);
     }
 
+    // TODO: Prevents access to WP_Role capabilities
     public function capabilities()
     {
         return [];
@@ -27,7 +29,7 @@ abstract class Base extends \Expresser\Support\Model
 
     public function newQuery()
     {
-        return (new Query())->setModel($this)->name($this->name);
+        return (new Builder(new Query))->setModel($this)->name($this->name);
     }
 
     public function removeCapability($capability)

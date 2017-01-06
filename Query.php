@@ -2,27 +2,21 @@
 
 namespace Expresser\Role;
 
-class Query extends \Expresser\Support\Builder
+use Expresser\Contracts\Support\Queryable;
+
+class Query implements Queryable
 {
     protected $names = [];
 
-    public function find($name)
+    public function execute()
     {
-        return $this->name($name)->first();
-    }
+        $results = [];
 
-    public function first()
-    {
-        return $this->get()->first();
-    }
-
-    public function get()
-    {
-        foreach ($this->names as &$name) {
-            $name = get_role($name);
+        foreach ($this->names as $name) {
+            $results[] = get_role($name);
         }
 
-        return $this->getModels($this->names);
+        return $results;
     }
 
     public function name($name)
