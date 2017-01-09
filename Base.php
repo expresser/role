@@ -7,6 +7,10 @@ use WP_Role;
 
 abstract class Base extends Model
 {
+    public $name;
+
+    public $label;
+
     protected $role;
 
     public function __construct(WP_Role $role = null)
@@ -16,20 +20,20 @@ abstract class Base extends Model
         parent::__construct((array) $this->role);
     }
 
-    public function addCapability($capability)
+    public function newQuery()
     {
-        $this->role->add_cap($capability);
+        return (new Builder(new Query))->setModel($this)->name($this->name);
     }
 
     // TODO: Prevents access to WP_Role capabilities
-    public function capabilities()
+    public function getCapabilitiesAttribute()
     {
         return [];
     }
 
-    public function newQuery()
+    public function addCapability($capability)
     {
-        return (new Builder(new Query))->setModel($this)->name($this->name);
+        $this->role->add_cap($capability);
     }
 
     public function removeCapability($capability)
@@ -52,6 +56,13 @@ abstract class Base extends Model
         add_role($role->name, $role->label);
     }
 
+    public static function deregisterRole()
+    {
+        $role = new static();
+
+        remove_role($role->name);
+    }
+
     public static function registerCapabilities()
     {
         $role = new static();
@@ -59,13 +70,6 @@ abstract class Base extends Model
         foreach ($role->capabilities as $capability) {
             $role->addCapability($capability);
         }
-    }
-
-    public static function deregisterRole()
-    {
-        $role = new static();
-
-        remove_role($role->name);
     }
 
     public static function deregisterCapabilities()
@@ -76,8 +80,4 @@ abstract class Base extends Model
             $role->removeCapability($capability);
         }
     }
-
-    abstract public function label();
-
-    abstract public function name();
 }

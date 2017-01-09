@@ -4,13 +4,7 @@ namespace Expresser\Role;
 
 class Contributor extends Native
 {
-    public function label()
-    {
-        return 'Contributor';
-    }
+    public $name = 'contributor';
 
-    public function name()
-    {
-        return 'contributor';
-    }
+    public $label = 'Contributor';
 }

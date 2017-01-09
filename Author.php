@@ -4,13 +4,7 @@ namespace Expresser\Role;
 
 class Author extends Native
 {
-    public function label()
-    {
-        return 'Author';
-    }
+    public $name = 'author';
 
-    public function name()
-    {
-        return 'author';
-    }
+    public $label = 'Author';
 }

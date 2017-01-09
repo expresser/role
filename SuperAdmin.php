@@ -4,13 +4,7 @@ namespace Expresser\Role;
 
 class SuperAdmin extends Native
 {
-    public function label()
-    {
-        return 'Super Admin';
-    }
+    public $name = 'super_admin';
 
-    public function name()
-    {
-        return 'super_admin';
-    }
+    public $label = 'Super Admin';
 }

@@ -4,13 +4,7 @@ namespace Expresser\Role;
 
 class Editor extends Native
 {
-    public function label()
-    {
-        return 'Editor';
-    }
+    public $name = 'editor';
 
-    public function name()
-    {
-        return 'editor';
-    }
+    public $label = 'Editor';
 }

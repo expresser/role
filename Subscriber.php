@@ -4,13 +4,7 @@ namespace Expresser\Role;
 
 class Subscriber extends Native
 {
-    public function label()
-    {
-        return 'Subscriber';
-    }
+    public $name = 'subscriber';
 
-    public function name()
-    {
-        return 'subscriber';
-    }
+    public $label = 'Subscriber';
 }
